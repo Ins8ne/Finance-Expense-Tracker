@@ -3,7 +3,7 @@
 
 
 
-
+![Finance](finace_tracker.png)
 
 
 
@@ -71,6 +71,14 @@ python finance_expense_tracker.py
 
 
 ## Using the `expensives.md` File with "Read Expenses from File" Option
+
+
+
+![expensivesmd](expensivesmd.png)
+
+
+
+
 
 The Finance Expense Tracker script allows you to import expenses from a file named `expensives.md`. This file should be in the same directory as the `finance_expense_tracker.py` script. The `expensives.md` file should follow a specific format for the expenses to be imported correctly.
 
