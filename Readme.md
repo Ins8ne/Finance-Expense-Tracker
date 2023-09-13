@@ -17,7 +17,7 @@ To install the Finance Expense Tracker script, follow these steps:
 
 1. Make sure you have Python installed on your computer. You can download the latest version of Python from the official website: [python.org](https://www.python.org/).
 
-2. Download the script file named `finance_expense_tracker.py` from [GitHub repository](https://github.com/example/finance-expense-tracker).
+2. Download the script file named `finance_expense_tracker.py` from [GitHub repository]([https://github.com/example/finance-expense-tracker](https://github.com/Ins8ne/Finance-Expense-Tracker/tree/main)).
 
 3. Save the `finance_expense_tracker.py` file to a directory of your choice.
 
