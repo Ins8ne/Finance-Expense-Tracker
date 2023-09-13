@@ -17,9 +17,9 @@ To install the Finance Expense Tracker script, follow these steps:
 
 1. Make sure you have Python installed on your computer. You can download the latest version of Python from the official website: [python.org](https://www.python.org/).
 
-2. Download the script file named `finance_expense_tracker.py` from [GitHub repository]([https://github.com/example/finance-expense-tracker](https://github.com/Ins8ne/Finance-Expense-Tracker/tree/main)).
+2. Download the script file named `finance.py` from [GitHub repository]([https://github.com/example/finance-expense-tracker](https://github.com/Ins8ne/Finance-Expense-Tracker/tree/main)).
 
-3. Save the `finance_expense_tracker.py` file to a directory of your choice.
+3. Save the `finance.py` file to a directory of your choice.
 
 ## Step 2: Dependencies Installation
 
@@ -27,7 +27,7 @@ The Finance Expense Tracker script has some dependencies that need to be install
 
 1. Open your command-line interface (e.g., Terminal for macOS/Linux or Command Prompt for Windows).
 
-2. Navigate to the directory where you saved the `finance_expense_tracker.py` file using the `cd` command.
+2. Navigate to the directory where you saved the `finance.py` file using the `cd` command.
 
 3. Run the following command to install the dependencies:
 
@@ -41,12 +41,12 @@ Now that you have installed the Finance Expense Tracker script and its dependenc
 
 1. Open your command-line interface (e.g., Terminal for macOS/Linux or Command Prompt for Windows).
 
-2. Navigate to the directory where you saved the `finance_expense_tracker.py` file using the `cd` command.
+2. Navigate to the directory where you saved the `finance.py` file using the `cd` command.
 
 3. Run the following command to start using the Finance Expense Tracker:
 
 ```
-python finance_expense_tracker.py
+python finance.py
 ```
 
 4. The Finance Expense Tracker menu will be displayed with various options:
@@ -80,7 +80,7 @@ python finance_expense_tracker.py
 
 
 
-The Finance Expense Tracker script allows you to import expenses from a file named `expensives.md`. This file should be in the same directory as the `finance_expense_tracker.py` script. The `expensives.md` file should follow a specific format for the expenses to be imported correctly.
+The Finance Expense Tracker script allows you to import expenses from a file named `expensives.md`. This file should be in the same directory as the `finance.py` script. The `expensives.md` file should follow a specific format for the expenses to be imported correctly.
 
 Here's how to use the `expensives.md` file with the "Read Expenses from File" option:
 
@@ -117,7 +117,7 @@ Movie Ticket: 12.00
 Concert Ticket: 40.00
 ```
 
-4. Save the `expensives.md` file in the same directory as the `finance_expense_tracker.py` script.
+4. Save the `expensives.md` file in the same directory as the `finance.py` script.
 
 5. Follow the steps mentioned in Step 3 of the Usage section to run the Finance Expense Tracker script.
 
