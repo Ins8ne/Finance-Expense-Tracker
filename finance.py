@@ -667,15 +667,15 @@ def menu():
 
     console.print("Select an Option:\n", style="bold")
 
-    console.print("1) Add an Expense  📝")
-    console.print("2) Read Expenses from File  📄")
-    console.print("3) View Expenses  👀")
-    console.print("4) Monthly Summary  📅")
-    console.print("5) Yearly Summary  📆")
-    console.print("6) Daily Summary  📆")
-    console.print("7) Weekly Summary  📆")
-    console.print("8) Clear Expenses  🗑️")
-    console.print("9) Exit  🚪")
+    console.print("1) 📝  Add an Expense  ")
+    console.print("2) 📄  Read Expenses from File  ")
+    console.print("3) 👀  View Expenses  ")
+    console.print("4) 📅  Monthly Summary  ")
+    console.print("5) 📆  Yearly Summary  ")
+    console.print("6) 📆  Daily Summary  ")
+    console.print("7) 📆  Weekly Summary  ")
+    console.print("8) 🗑️   Clear Expenses  ")
+    console.print("9) 🚪  Exit  \n\n")
 
 
     choice = console.input("Enter your choice: ")
