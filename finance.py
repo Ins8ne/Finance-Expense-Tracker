@@ -670,10 +670,10 @@ def menu():
     console.print("1) 📝  Add an Expense  ")
     console.print("2) 📄  Read Expenses from File  ")
     console.print("3) 👀  View Expenses  ")
-    console.print("4) 📅  Monthly Summary  ")
-    console.print("5) 📆  Yearly Summary  ")
-    console.print("6) 📆  Daily Summary  ")
-    console.print("7) 📆  Weekly Summary  ")
+    console.print("4) 📆  Daily Summary  ")
+    console.print("5) 📆  Weekly Summary  ")
+    console.print("6) 📆  Monthly Summary  ")
+    console.print("7) 📆  Yearly Summary  ")
     console.print("8) 🗑️   Clear Expenses  ")
     console.print("9) 🚪  Exit  \n\n")
 
@@ -686,18 +686,18 @@ def menu():
     elif choice == "3":
         view_expenses()
     elif choice == "4":
-        month = console.input("Enter the month as a number (e.g., 01 for January, 02 for February, etc.): ")
-        year = console.input("Enter the year (e.g., 2022): ")
-        get_monthly_summary(int(month), year)
-    elif choice == "5":
-        select_year()
-    elif choice == "6":
         day = console.input("Enter the day as a number (e.g., 01, 02, etc.): ")
         month = console.input("Enter the month as a number (e.g., 01 for January, 02 for February, etc.): ")
         year = console.input("Enter the year (e.g., 2022): ")
         get_daily_summary(int(day), int(month), year)
-    elif choice == "7":
+    elif choice == "5":
         select_week()
+    elif choice == "6":
+        month = console.input("Enter the month as a number (e.g., 01 for January, 02 for February, etc.): ")
+        year = console.input("Enter the year (e.g., 2022): ")
+        get_monthly_summary(int(month), year)
+    elif choice == "7":
+        select_year()
     elif choice == "8":
         clear_expenses()
     elif choice == "9":
