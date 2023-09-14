@@ -133,7 +133,7 @@ Concert Ticket: 40.00
 
 ## Viewing Summaries in Markdown Format
 
-After each start of the Finance Expense Tracker, multiple summaries will be automatically generated and saved in Markdown format in the `/finances` folder. This allows you to easily view and share your expense summaries.
+After each start of the Finance Expense Tracker, multiple summaries will be automatically generated and saved in Markdown format in the `/finances` folder. These files are overwritten each time you start the script. This allows you to easily view and share your most recent expense summaries.
 
 Here's how the `/finances` folder and a daily summary file might look:
 
