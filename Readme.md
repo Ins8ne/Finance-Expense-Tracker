@@ -3,7 +3,7 @@
 
 
 
-![Finance](finace_tracker.png)
+![Finance](finace_tracker_budget.png)
 
 
 
