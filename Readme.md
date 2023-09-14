@@ -61,15 +61,21 @@ python finance.py
 
 6. The Finance Expense Tracker menu will be displayed with various options:
 
-- Add an Expense: Allows you to add a new expense by providing the date, category, description, and expense amount.
-- Read Expenses from File: Imports expenses from a file in the specified format.
-- View Expenses: Displays a summary of expenses for the current day.
-- Monthly Summary: Shows a summary of expenses for a specific month and year.
-- Yearly Summary: Shows a summary of expenses for a specific year.
-- Daily Summary: Shows a summary of expenses for a specific day, month, and year.
-- Weekly Summary: Shows a summary of expenses for a specific week.
-- Clear Expenses: Allows you to clear expenses based on different criteria (all, specific day, specific month, or specific year).
-- Exit: Exits the Finance Expense Tracker script.
+## Expense Management:
+- **Add an Expense:** Allows you to add a new expense by providing the date, category, description, and expense amount.
+- **Read Expenses from File:** Imports expenses from a file in the specified format.
+- **View Expenses:** Displays a summary of expenses for the current day.
+- **Clear Expenses:** Allows you to clear expenses based on different criteria (all, specific day, specific month, or specific year).
+
+## Expense Summaries:
+- **Daily Summary:** Shows a summary of expenses for a specific day, month, and year.
+- **Weekly Summary:** Shows a summary of expenses for a specific week.
+- **Monthly Summary:** Shows a summary of expenses for a specific month and year.
+- **Yearly Summary:** Shows a summary of expenses for a specific year.
+
+## Other Options:
+- **Exit:** Exits the Finance Expense Tracker script.
+
 
 7. Choose an option by entering the corresponding number and pressing Enter.
 
