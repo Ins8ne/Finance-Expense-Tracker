@@ -3,9 +3,14 @@ from datetime import date
 from rich.console import Console
 from rich.table import Table
 from datetime import datetime
+from datetime import timedelta
+import os
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 console = Console()
-
+console.clear()
 # Create the header of the table
 table = Table(show_header=True, header_style="bold blue")
 table.add_column("Date", style="dim", width=10)
@@ -387,7 +392,166 @@ def select_week():
 
 
 
+def write_daily_summary_to_md():
+    # Get today's date
+    today = date.today().strftime("%Y-%m-%d")
 
+    # Filter expenses for today
+    daily_expenses = [expense for expense in data if expense["Date"] == today]
+
+    # Calculate the total expenses for each category and collect descriptions
+    category_totals = {}
+    descriptions = {}
+    for expense in daily_expenses:
+        category = expense["Category"]
+        expense_amount = float(expense["Expense"])
+        description = expense["Description"]
+        if category in category_totals:
+            category_totals[category] += expense_amount
+            descriptions[category].append((description, expense_amount))
+        else:
+            category_totals[category] = expense_amount
+            descriptions[category] = [(description, expense_amount)]
+
+    # Write the daily summary to a markdown file
+    with open("finances/daily.md", "w", encoding='utf-8') as file:
+        file.write(f"# {today} Daily Summary 💼\n\n")
+        for category, total in category_totals.items():
+            file.write(f"## {category} 📁\n\n")
+            file.write("| Description | Amount 💰|\n")
+            file.write("| --- | --- |\n")
+            for description, amount in descriptions[category]:
+                file.write(f"| {description} | ${amount:.2f} |\n")
+            file.write(f"\n**Total**: ${total:.2f} 💵\n\n")
+
+        total_expenses = sum(category_totals.values())
+        file.write(f"\n# Total expenses for {today}: ${total_expenses:.2f} 💸\n")
+
+
+
+
+
+
+
+def write_monthly_summary_to_md():
+    # Get current month and year
+    now = datetime.now()
+    current_month = now.month
+    current_year = now.year
+
+    # Filter expenses for the current month
+    monthly_expenses = [expense for expense in data if expense["Date"].startswith(f"{current_year}-{current_month:02d}")]
+
+    # Calculate the total expenses for each category and collect descriptions
+    category_totals = {}
+    descriptions = {}
+    for expense in monthly_expenses:
+        category = expense["Category"]
+        expense_amount = float(expense["Expense"])
+        description = expense["Description"]
+        if category in category_totals:
+            category_totals[category] += expense_amount
+            descriptions[category].append((description, expense_amount))
+        else:
+            category_totals[category] = expense_amount
+            descriptions[category] = [(description, expense_amount)]
+
+    # Write the monthly summary to a markdown file
+    with open("finances/monthly.md", "w", encoding='utf-8') as file:
+        file.write(f"# {current_month}/{current_year} Monthly Summary 💼\n\n")
+        for category, total in category_totals.items():
+            file.write(f"## {category} 📁\n\n")
+            file.write("| Description | Amount 💰|\n")
+            file.write("| --- | --- |\n")
+            for description, amount in descriptions[category]:
+                file.write(f"| {description} | ${amount:.2f} |\n")
+            file.write(f"\n**Total**: ${total:.2f} 💵\n\n")
+
+        total_expenses = sum(category_totals.values())
+        file.write(f"\n# Total expenses for {current_month}/{current_year}: ${total_expenses:.2f} 💸\n")
+
+
+
+
+
+
+
+
+
+
+def write_weekly_summary_to_md():
+    # Get today's date
+    today = date.today()
+
+    # Find the last Monday
+    last_monday = today - timedelta(days=today.weekday())
+
+    # Filter expenses for the current week
+    weekly_expenses = [expense for expense in data if last_monday <= datetime.strptime(expense["Date"], "%Y-%m-%d").date() <= today]
+
+    # Calculate the total expenses for each category and collect descriptions
+    category_totals = {}
+    descriptions = {}
+    for expense in weekly_expenses:
+        category = expense["Category"]
+        expense_amount = float(expense["Expense"])
+        description = expense["Description"]
+        if category in category_totals:
+            category_totals[category] += expense_amount
+            descriptions[category].append((description, expense_amount))
+        else:
+            category_totals[category] = expense_amount
+            descriptions[category] = [(description, expense_amount)]
+
+    # Write the weekly summary to a markdown file
+    with open("finances/weekly.md", "w", encoding='utf-8') as file:
+        file.write(f"# Weekly Summary ({last_monday} to {today}) 💼\n\n")
+        for category, total in category_totals.items():
+            file.write(f"## {category} 📁\n\n")
+            file.write("| Description | Amount 💰|\n")
+            file.write("| --- | --- |\n")
+            for description, amount in descriptions[category]:
+                file.write(f"| {description} | ${amount:.2f} |\n")
+            file.write(f"\n**Total**: ${total:.2f} 💵\n\n")
+
+        total_expenses = sum(category_totals.values())
+        file.write(f"\n# Total expenses for {last_monday} to {today}: ${total_expenses:.2f} 💸\n")
+
+
+
+
+
+
+
+
+
+
+def write_yearly_summary_to_md():
+    # Get current year
+    current_year = datetime.now().year
+
+    # Filter expenses for the current year
+    yearly_expenses = [expense for expense in data if expense["Date"].startswith(f"{current_year}")]
+
+    # Calculate the total expenses for each category
+    category_totals = {}
+    for expense in yearly_expenses:
+        category = expense["Category"]
+        expense_amount = float(expense["Expense"])
+        if category in category_totals:
+            category_totals[category] += expense_amount
+        else:
+            category_totals[category] = expense_amount
+
+    # Write the yearly summary to a markdown file
+    with open("finances/yearly.md", "w", encoding='utf-8') as file:
+        file.write(f"# {current_year} Yearly Summary 💼\n\n")
+        for category, total in category_totals.items():
+            file.write(f"## {category} 📁\n\n")
+            file.write(f"\n**Total**: ${total:.2f} 💵\n\n")
+
+        total_expenses = sum(category_totals.values())
+        file.write(f"\n# Total expenses for {current_year}: ${total_expenses:.2f} 💸\n")
 
 
 
@@ -408,10 +572,101 @@ def select_week():
 
 
 def menu():
-    # Create a menu to select an option
+    write_daily_summary_to_md()
+    write_monthly_summary_to_md()
+    write_weekly_summary_to_md()
+    write_yearly_summary_to_md()
+    clear_screen()
     console.clear()
-    console.print("Finance Expense Tracker\n", style="bold")
+    console.print("Finance Expense Tracker\n\n", style="bold")
+
+
+
+
+
+
+    finances_data = []
+    try:
+        with open("finances.csv", newline="") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                finances_data.append(row)
+    except FileNotFoundError:
+        pass
+
+    total_expenses = sum(float(expense["Expense"]) for expense in finances_data)
+    categories = list(set(expense["Category"] for expense in finances_data))
+
+    console.print("🎯 Expenses by category:\n")
+    for category in categories:
+        category_expenses = sum(float(expense["Expense"]) for expense in finances_data if expense["Category"] == category)
+        console.print(f"{category}: {category_expenses}\n")
+
+    budget = 0.00
+    daily_budget = 0.00
+    with open("expenses.csv", newline="") as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            if row["Category"] == "Budget":
+                budget = float(row["Expense"])
+            elif row["Category"] == "Daily budget":
+                daily_budget = float(row["Expense"])
+
+    expenses = 0.00
+    with open("expenses.csv", newline="") as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            expenses += float(row["Expense"])
+
+    console.print(f"\n💵 Total spent: {total_expenses:.2f}")
+
+    remaining_budget = budget - total_expenses
+    console.print(f"✅ Budget remaining: {remaining_budget:.2f}")
+
+    today_expenses = sum(float(expense["Expense"]) for expense in finances_data if expense["Date"] == date.today().strftime("%Y-%m-%d"))
+
+    # Check if remaining budget is less than or equal to 0
+    if remaining_budget <= 0:
+        daily_budget_today = 0.00
+    else:
+        daily_budget_today = daily_budget - today_expenses
+
+    console.print(f"👉 Budget per day: {daily_budget_today:.2f}\n\n")
+    
+    
+    
+    
+    # Calculate the total expenses for each category
+    category_totals = {}
+    for expense in data:
+        category = expense["Category"]
+        expense_amount = float(expense["Expense"])
+        if category in category_totals:
+            category_totals[category] += expense_amount
+        else:
+            category_totals[category] = expense_amount
+
+    # Calculate total expenses and remaining budget
+    total_expenses = sum(category_totals.values())
+    remaining_budget = budget - total_expenses
+
+    # Write the total summary to a markdown file
+    with open("finances/Total.md", "w", encoding='utf-8') as file:
+        file.write("# Total Summary 💼\n\n\n\n")
+        for category, total in category_totals.items():
+            file.write(f"## {category} 📁\n\n")
+            file.write(f"**Total**: ${total:.2f} 💵\n\n")
+
+        file.write(f"\n\n\n\n# Total spent: ${total_expenses:.2f} 💸\n")
+        file.write(f"# Budget remaining: ${remaining_budget:.2f} ✅\n")    
+        file.write(f"# 👉 Budget per day: {daily_budget_today:.2f}\n\n")
+    
+    
+    
+    
+
     console.print("Select an Option:\n", style="bold")
+
     console.print("1) Add an Expense  📝")
     console.print("2) Read Expenses from File  📄")
     console.print("3) View Expenses  👀")
@@ -420,7 +675,8 @@ def menu():
     console.print("6) Daily Summary  📆")
     console.print("7) Weekly Summary  📆")
     console.print("8) Clear Expenses  🗑️")
-    console.print("9) Exit  🚪\n")
+    console.print("9) Exit  🚪")
+
 
     choice = console.input("Enter your choice: ")
     if choice == "1":
