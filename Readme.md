@@ -41,15 +41,25 @@ Now that you have installed the Finance Expense Tracker script and its dependenc
 
 1. Open your command-line interface (e.g., Terminal for macOS/Linux or Command Prompt for Windows).
 
-2. Navigate to the directory where you saved the `finance.py` file using the `cd` command.
+2. Before running the script, you need to have an expenses.csv file in the same directory. The expenses file should be named expenses.csv and should follow this format:
 
-3. Run the following command to start using the Finance Expense Tracker:
+```
+Category,Expense
+Budget,1000
+Daily budget,30.0
+```
+You can change the values in this file according to your needs. This file will not be overwritten when you run the script.
+  
+
+3. Navigate to the directory where you saved the `finance.py` file using the `cd` command.
+
+4. Run the following command to start using the Finance Expense Tracker:
 
 ```
 python finance.py
 ```
 
-4. The Finance Expense Tracker menu will be displayed with various options:
+6. The Finance Expense Tracker menu will be displayed with various options:
 
 - Add an Expense: Allows you to add a new expense by providing the date, category, description, and expense amount.
 - Read Expenses from File: Imports expenses from a file in the specified format.
@@ -61,11 +71,11 @@ python finance.py
 - Clear Expenses: Allows you to clear expenses based on different criteria (all, specific day, specific month, or specific year).
 - Exit: Exits the Finance Expense Tracker script.
 
-5. Choose an option by entering the corresponding number and pressing Enter.
+7. Choose an option by entering the corresponding number and pressing Enter.
 
-6. Follow the instructions prompted by the script to perform the desired action.
+8. Follow the instructions prompted by the script to perform the desired action.
 
-7. Enjoy tracking your expenses with the Finance Expense Tracker!
+9. Enjoy tracking your expenses with the Finance Expense Tracker!
 
 
 
